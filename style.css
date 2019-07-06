@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #24272E;
+  font-family: Asap, sans-serif;
+  color: white;
+}
+
+header {
+  background: white;
+  padding: 20px;
+}
+
+header > h1 {
+  color: #24272E;
+  text-align: center;
+}
+
+.date-entry {
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.date-entry > label {
+  margin-right: 5px;
+}
+
+.date-entry > input {
+  border-radius: 4px;
+  border-color: white;
+  background: #24272E;
+  color: white;
+  text-align: center;
+  padding: 2px;
+  font-size: 14px;
+  font-family: Asap, sans-serif;
+}
+
+.date-choices {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.choice {
+  border: 2px solid white;
+  border-radius: 6px;
+  margin: 10px;
+  display: inline-block;
+  padding: 10px;
+  min-width: 100px;
+  font-weight: bold;
+}
+
+.choice:hover {
+  cursor: pointer;
+  background: #393C42;
+}
+
+.result {
+  margin: 30px;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.result > div {
+  margin: 10px;
+}
+
+.credit {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.credit > a > img {
+  margin-top: 5px;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  filter: invert(100%);
+}
