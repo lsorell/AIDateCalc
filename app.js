@@ -73,6 +73,8 @@ function styleButtonDeselect(htmlElement){
 }
 
 function main() {
+  styleButtonSelect(bullsIn_div);
+
   date_input.addEventListener('change', function(){
     updateDays();
   })
