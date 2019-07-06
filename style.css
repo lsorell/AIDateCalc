@@ -19,11 +19,12 @@ header {
 header > h1 {
   color: #24272E;
   text-align: center;
+  font-size: 60px;
 }
 
 .date-entry {
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -38,12 +39,17 @@ header > h1 {
   color: white;
   text-align: center;
   padding: 2px;
-  font-size: 14px;
+  font-size: 24px;
   font-family: Asap, sans-serif;
 }
 
+.date-entry > input:hover {
+  cursor: pointer;
+  background: #393C42;
+}
+
 .date-choices {
-  margin: 20px auto;
+  margin: 50px auto;
   text-align: center;
 }
 
@@ -53,18 +59,21 @@ header > h1 {
   margin: 10px;
   display: inline-block;
   padding: 10px;
-  min-width: 100px;
+  min-width: 175px;
+  font-size: 30px;
   font-weight: bold;
+  transition-duration: 0.3s;
 }
 
 .choice:hover {
   cursor: pointer;
-  background: #393C42;
+  background: white !important;
+  color: #24272E !important;
 }
 
 .result {
-  margin: 30px;
-  font-size: 60px;
+  margin: 50px;
+  font-size: 100px;
   font-weight: bold;
   text-align: center;
 }
@@ -76,7 +85,7 @@ header > h1 {
 .credit {
   margin-top: 150px;
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .credit > a > img {
