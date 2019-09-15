@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title> AI Date Calculator</title>
+
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -11,16 +12,22 @@
         </header>
 
         <div class="date-entry">
-            <label for="date-input">Date:</label>
-            <input type="date" id="date-input">
+            <label for="default-date-input">Date:</label>
+            <input type="date" id="default-date-input">
         </div>
 
         <div class="date-choices">
-            <div class="choice" id="bulls-in">BULLS IN</div>
-            <div class="choice" id="bulls-out">BULLS OUT</div>
-            <div class="choice" id="ai">AI</div>
-            <div class="choice" id="embryo">EMBRYO</div>
-            <div class="choice" id="due-date">DUE DATE</div>
+          <div class="date-entry">
+            <label for="date-input">Selection Date:</label>
+            <input type="date" id="selection-date-input">
+          </div>
+          <select class="i-selector" id="i-selector">
+            <option value="bulls-in">Bulls In</option>
+            <option value="bulls-out">Bulls Out</option>
+            <option value="ai">AI</option>
+            <option value="embryo">Embryo</option>
+            <option value="due-date">Due Date</option>
+          </select>
         </div>
 
         <div class="result">
