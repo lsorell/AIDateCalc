@@ -54,7 +54,14 @@ function setDefaultDate(){
 }
 
 function main() {
-  defaultDate_input.value = Date.now().toISOString().substring(0,10);
+  var now = new Date();
+  defaultDate_input.value = now.toISOString().substring(0,10);
+
+  updateSelection();
+
+  defaultDate_input.addEventListener('change', function(){
+    updateDays();
+  })
 
   selectionDate_input.addEventListener('change', function(){
     updateDays();
