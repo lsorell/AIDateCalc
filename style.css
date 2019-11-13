@@ -32,9 +32,9 @@ header > h1 {
   margin-right: 5px;
 }
 
-.date-entry > input {
-  border-radius: 4px;
+.date-entry > input {  
   border-color: white;
+  border-radius: 4px;
   background: #24272E;
   color: white;
   text-align: center;
@@ -49,12 +49,18 @@ header > h1 {
 }
 
 .date-choices {
-  margin: 50px auto;
+  margin: 30px auto;
   text-align: center;
 }
 
-.i-selector {
-  
+select {
+  border-color: white;
+  border-radius: 4px;
+  background-color: #24272E;
+  color: white;
+  font-size: 24px;
+  padding: 6px;
+  font-family: Asap, sans-serif;
 }
 
 .result {
