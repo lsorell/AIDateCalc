@@ -6,8 +6,7 @@ const i_select = document.getElementById("i-selector");
 
 var activeSelection;
 
-function updateDays() {
-  var userDate = new Date(selectionDate_input.value);
+function updateDays() {  
   var result = calculateDays()
 
   days_div.innerHTML = `${result[0]} Days`;
@@ -15,10 +14,11 @@ function updateDays() {
 }
 
 function calculateDays(){
-  var days;
-  var now = new Date().getTime();
+  var days;  
   var msPerDay = 24 * 60 * 60 * 1000;
-
+  
+  var defaultDate = new Date(defaultDate_input.value);
+  var defaultTime = defaultDate.getTime();
   var userDate = new Date(selectionDate_input.value);
   var userTime = userDate.getTime();
   if(userDate == "Invalid Date"){
@@ -28,13 +28,13 @@ function calculateDays(){
     case 0:
     case 1:
     case 2:
-      days = Math.round((now - userTime) / msPerDay) - 1; //Starts at day 0
+      days = Math.round((defaultTime - userTime) / msPerDay); //Starts at day 0
       break;
     case 3:
-      days = Math.round((now - userTime) / msPerDay) + 7 - 1; //Starts at day 0
+      days = Math.round((defaultTime - userTime) / msPerDay) + 7; //Starts at day 0
       break;
     case 4:
-      days = 283 - Math.round((userTime - now) / msPerDay) + 1;
+      days = 283 - Math.round((userTime - defaultTime) / msPerDay) + 2;
       break;
   }
   if(days < 0)
