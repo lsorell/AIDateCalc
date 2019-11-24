@@ -4,6 +4,14 @@ const defaultDate_input = document.getElementById("default-date-input");
 const selectionDate_input = document.getElementById("selection-date-input");
 const i_select = document.getElementById("i-selector");
 
+var Selection = {
+  BULLSIN: 0,
+  BULLSOUT: 1,
+  AI: 2,
+  EMBRYO: 3,
+  DUEDATE: 4
+}
+
 var activeSelection;
 
 function updateDays() {  
@@ -25,15 +33,15 @@ function calculateDays(){
     return [0,0]
   }
   switch(activeSelection){
-    case 0:
-    case 1:
-    case 2:
+    case Selection.BULLSIN:
+    case Selection.BULLSOUT:
+    case Selection.AI:
       days = Math.round((defaultTime - userTime) / msPerDay); //Starts at day 0
       break;
-    case 3:
+    case Selection.EMBRYO:
       days = Math.round((defaultTime - userTime) / msPerDay) + 7; //Starts at day 0
       break;
-    case 4:
+    case Selection.DUEDATE:
       days = 283 - Math.round((userTime - defaultTime) / msPerDay) + 2;
       break;
   }
