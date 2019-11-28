@@ -18,12 +18,14 @@ function updateDays() {
   var result = calculateDays()
 
   days_div.innerHTML = `${result[0]} Days`;
-  months_div.innerHTML = `${result[1]} Months`;
+  months_div.innerHTML = `Calving date: ${result[1]}`;
 }
 
 function calculateDays(){
-  var days;  
+  var days;
+  var dueDate;  
   var msPerDay = 24 * 60 * 60 * 1000;
+  var gestTime = 283 * msPerDay;
   
   var defaultDate = new Date(defaultDate_input.value);
   var defaultTime = defaultDate.getTime();
@@ -37,18 +39,27 @@ function calculateDays(){
     case Selection.BULLSOUT:
     case Selection.AI:
       days = Math.round((defaultTime - userTime) / msPerDay); //Starts at day 0
+      dueDate = userTime + gestTime;
       break;
     case Selection.EMBRYO:
       days = Math.round((defaultTime - userTime) / msPerDay) + 7; //Starts at day 0
+      dueDate = userTime + gestTime - 7 * msPerDay;
       break;
     case Selection.DUEDATE:
       days = 283 - Math.round((userTime - defaultTime) / msPerDay) + 2;
+      dueDate = userTime + msPerDay;     
       break;
   }
-  if(days < 0)
+  
+  if(days <= 0){
     days = 0;
-  var months = Math.round(days / 30 * 10) / 10;
-  return [days, months];
+    dueDate = "-";
+  }
+  else{    
+    dueDate = new Date(dueDate).toDateString().substring(4);
+  }  
+
+  return [days, dueDate];
 }
 
 function updateSelection() {
