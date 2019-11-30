@@ -3,6 +3,8 @@ const months_div = document.getElementById("months");
 const defaultDate_input = document.getElementById("default-date-input");
 const selectionDate_input = document.getElementById("selection-date-input");
 const i_select = document.getElementById("i-selector");
+const save_div = document.getElementById("save");
+const save_button = document.getElementById("save-button");
 
 var Selection = {
   BULLSIN: 0,
@@ -32,7 +34,7 @@ function calculateDays(){
   var userDate = new Date(selectionDate_input.value);
   var userTime = userDate.getTime();
   if(userDate == "Invalid Date"){
-    return [0,0]
+    return ['-','-']
   }
   switch(activeSelection){
     case Selection.BULLSIN:
@@ -52,8 +54,8 @@ function calculateDays(){
   }
   
   if(days <= 0){
-    days = 0;
-    dueDate = "-";
+    days = '-';
+    dueDate = '-';
   }
   else{    
     dueDate = new Date(dueDate).toDateString().substring(4);
@@ -65,6 +67,15 @@ function calculateDays(){
 function updateSelection() {
   activeSelection = i_select.selectedIndex;
   updateDays();
+}
+
+function saveValues(){
+  var saveString = i_select.options[activeSelection].textContent + ': ' + days_div.textContent.toLowerCase() + '; ' + months_div.textContent.substring(14);  
+
+  var para = document.createElement("p");
+  var node = document.createTextNode(saveString);
+  para.appendChild(node);  
+  save_div.appendChild(para);  
 }
 
 function setDefaultDate(){
@@ -88,6 +99,10 @@ function main() {
 
   i_select.addEventListener('change', function(){
     updateSelection()
+  })
+
+  save_button.addEventListener('click', function(){
+    saveValues();
   })
 }
 
